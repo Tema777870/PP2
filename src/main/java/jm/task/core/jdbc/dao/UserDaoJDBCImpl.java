@@ -14,7 +14,7 @@ public class UserDaoJDBCImpl implements UserDao {
     private static final String SQLREMOVEUSERBYID = "DELETE FROM users_table WHERE ID =(?)";
     private static long id = 0;
     private static final String SQLGETALLUSERS = "SELECT * FROM users_table";
-    private static final String SQLCLEANUSESTABLE = "TRUNCATE users_table";
+    private static final String SQLCLEANUSERSTABLE = "TRUNCATE users_table";
     private static final Connection CONNECTION = Util.getConnection();
 
     public UserDaoJDBCImpl() {
@@ -56,7 +56,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void removeUserById(long id) { // prepared statement
         try (PreparedStatement preparedStatement = CONNECTION.prepareStatement(SQLREMOVEUSERBYID)) {
-            preparedStatement.setLong (1, id);
+            preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
             System.out.println("Used removed!");
 
@@ -86,7 +86,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void cleanUsersTable() {
         try (Statement statement = CONNECTION.createStatement()) {
-            statement.executeUpdate(SQLCLEANUSESTABLE);
+            statement.executeUpdate(SQLCLEANUSERSTABLE);
             System.out.println("Table was truncated!");
 
         } catch (SQLException e) {
