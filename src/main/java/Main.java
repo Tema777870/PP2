@@ -10,7 +10,7 @@ public class Main {
         userService.saveUser("Sasuke", "Uchiha", (byte) 17);
         userService.saveUser("Kakashi", "Hatake", (byte) 28);
         userService.saveUser("Hiruzen", "Sarutobi", (byte) 72);
-        userService.removeUserById(4);
+        userService.removeUserById(2);
         userService.cleanUsersTable();
         userService.dropUsersTable();
 

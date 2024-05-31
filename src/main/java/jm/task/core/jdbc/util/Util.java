@@ -10,7 +10,7 @@ public class Util {
     private static final String PASSWORD = "Root";
 
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
